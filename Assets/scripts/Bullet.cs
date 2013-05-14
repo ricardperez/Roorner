@@ -6,6 +6,7 @@ public class Bullet : MonoBehaviour
 	
 	private float _velocity;
 	public Texture2D decal;
+	public Transform explosionPrefab;
 
 	// Use this for initialization
 	void Start ()
@@ -60,45 +61,50 @@ public class Bullet : MonoBehaviour
 	
 	void OnCollisionEnter (Collision collision)
 	{
-		if (collision.gameObject.tag == "map") {
-			RaycastHit hit = new RaycastHit ();
-			Ray ray = new Ray (collision.contacts [0].point + collision.contacts [0].normal, -collision.contacts [0].normal);
-			
-			Debug.DrawRay (ray.origin, ray.direction, Color.green, 5.0f);
-			if (Physics.Raycast (ray, out hit)) {
-				
-				Vector3 uvCoordinates = hit.textureCoord;
-//				uvCoordinates.x += 0.5f;
-				uvCoordinates.x = 1.0f - uvCoordinates.x;
-				Debug.Log ("UV Coordinates: " + uvCoordinates);
-				
-				if (collision.gameObject.renderer.material.mainTexture == null) {
-					Texture2D text = new Texture2D (100, 100);
-					collision.gameObject.renderer.material.mainTexture = text;
-				}
-				Texture2D currTexture = (Texture2D)collision.gameObject.renderer.material.mainTexture;
-				
-				int width = this.decal.width;
-				int height = this.decal.height;
-				
-				int startY = Mathf.Max(0, (((int)(uvCoordinates.y*currTexture.width)) - height/2));
-				int startX = Mathf.Max(0, (((int)(uvCoordinates.x*currTexture.height)) - width/2));
-				
-				width = Mathf.Min(width, currTexture.width-startX-1);
-				height = Mathf.Min(height, currTexture.height-startY-1);
-				
-				Color[] pix = this.decal.GetPixels(0, 0, width, height);
-				currTexture.SetPixels(startX, startY, width, height, pix);
-				currTexture.Apply ();
-				
-			} else {
-				Debug.Log ("No hitting??");
-			}
-			
-			
-			
-			Destroy (this.gameObject);
-			
+//		if (collision.gameObject.tag == "map-walls") {
+//			RaycastHit hit = new RaycastHit ();
+//			Ray ray = new Ray (collision.contacts [0].point + collision.contacts [0].normal, -collision.contacts [0].normal);
+//			
+//			Debug.DrawRay (ray.origin, ray.direction, Color.green, 5.0f);
+//			if (Physics.Raycast (ray, out hit)) {
+//				
+//				Vector3 uvCoordinates = hit.textureCoord;
+//				uvCoordinates.x = 1.0f - uvCoordinates.x;
+//				Debug.Log ("UV Coordinates: " + uvCoordinates);
+//				
+//				if (collision.gameObject.renderer.material.mainTexture == null) {
+//					Texture2D text = new Texture2D (100, 100);
+//					collision.gameObject.renderer.material.mainTexture = text;
+//				}
+//				Texture2D currTexture = (Texture2D)collision.gameObject.renderer.material.mainTexture;
+//				
+//				int width = this.decal.width;
+//				int height = this.decal.height;
+//				
+//				int startY = Mathf.Max (0, (((int)(uvCoordinates.y * currTexture.width)) - height / 2));
+//				int startX = Mathf.Max (0, (((int)(uvCoordinates.x * currTexture.height)) - width / 2));
+//				
+//				width = Mathf.Min (width, currTexture.width - startX - 1);
+//				height = Mathf.Min (height, currTexture.height - startY - 1);
+//				
+//				Color[] pix = this.decal.GetPixels (0, 0, width, height);
+//				currTexture.SetPixels (startX, startY, width, height, pix);
+//				currTexture.Apply ();
+//				
+//			} else {
+//				Debug.Log ("No hitting??");
+//			}
+//			
+//		}
+		
+		if (collision.gameObject.tag == "enemy")
+		{
+			EnemyController enemyController = collision.gameObject.GetComponent<EnemyController>();
+			enemyController.applyDamage(20);
 		}
+
+		Instantiate (this.explosionPrefab, this.transform.position, Quaternion.identity);
+		Destroy (this.gameObject);
+	
 	}
 }

@@ -4,18 +4,18 @@ using System.Collections;
 public class FirstPersonController : MonoBehaviour {
 	
 	public float movementSpeed = 10.0f;
-	public float jumpSpeed = 10.0f;
 	public float rotationSpeedX = 1.0f;
 	public float rotationSpeedY = 2.0f;
 	public float cameraXRange = 60.0f;
+	
+	public float jumpSpeed = 10.0f;
 	public int maxJumps = 3;
+	int nJumps = 0;
 	
 	CharacterController characterController;
 	float cameraCurrRotationX = 0.0f;
 	float gravitySpeed = 0.0f;
 	
-	int nJumps = 0;
-
 	// Use this for initialization
 	void Start () {
 		
