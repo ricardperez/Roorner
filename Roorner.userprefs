@@ -1,0 +1,16 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/scripts/Bullet.cs">
+    <Files>
+      <File FileName="Assets/scripts/Shoot.cs" Line="31" Column="85" />
+      <File FileName="Assets/scripts/Bullet.cs" Line="76" Column="46" />
+      <File FileName="Assets/scripts/FirstPersonController.cs" Line="51" Column="75" />
+      <File FileName="Assets/scripts/GunToCameraMovement.cs" Line="24" Column="114" />
+      <File FileName="Assets/scripts/GunWalkingAnimationMovement.cs" Line="35" Column="25" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
