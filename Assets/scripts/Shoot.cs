@@ -9,7 +9,7 @@ public class Shoot : MonoBehaviour
 	public Transform shootPoint;
 	public float shootForce = 10.0f;
 	public int shotsPerSecond = 1;
-	double timeSinceLastShoot = 0.0;
+	float timeSinceLastShoot = 0.0f;
 
 	// Use this for initialization
 	void Start ()
@@ -25,7 +25,7 @@ public class Shoot : MonoBehaviour
 		if (Input.GetButton ("Fire1")) {
 			
 			if (Input.GetButtonDown("Fire1") || (this.timeSinceLastShoot >= (1.0 / this.shotsPerSecond))) {
-				this.timeSinceLastShoot = 0.0;
+				this.timeSinceLastShoot = 0.0f;
 				Vector3 pos = this.shootPoint.position;
 				Vector3 direction = Camera.main.transform.forward;
 				GameObject bullet = (GameObject)Instantiate (this.bulletPrefab, pos, Camera.main.transform.rotation);
