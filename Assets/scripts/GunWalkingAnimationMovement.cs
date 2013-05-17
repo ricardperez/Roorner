@@ -4,7 +4,7 @@ using System.Collections;
 public class GunWalkingAnimationMovement : MonoBehaviour
 {
 	
-	public Transform player;
+	public Transform weapon;
 	private float _x;
 	private float _y;
 	
@@ -24,8 +24,8 @@ public class GunWalkingAnimationMovement : MonoBehaviour
 	void LateUpdate ()
 	{
 		
-		Vector3 pos = this.player.position;
-		pos += (this.player.rotation * new Vector3 (0.4f, 1.46f, 0.3f));
+		Vector3 playerPos = this.transform.position;
+		Vector3 weaponPos = (playerPos + (this.transform.rotation * new Vector3 (0.4f, 1.46f, 0.3f)));
 		
 		float movementVertical = Input.GetAxis ("Vertical");
 		float movementHorizontal = Input.GetAxis ("Horizontal");
@@ -41,13 +41,13 @@ public class GunWalkingAnimationMovement : MonoBehaviour
 			float offsetX = (Mathf.Sin (_x * 8.0f) * velocity);
 			float offsetY = (Mathf.Cos (_y * 16.0f) * velocity);
 		
-			pos.x += offsetX;
-			pos.y += offsetY;
+			weaponPos.x += offsetX;
+			weaponPos.y += offsetY;
 		
 			_x += Time.deltaTime;
 			_y += Time.deltaTime;
 		}
 		
-		this.transform.position = pos;
+		this.weapon.position = weaponPos;
 	}
 }

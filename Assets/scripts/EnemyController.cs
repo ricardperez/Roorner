@@ -16,13 +16,12 @@ public class EnemyController : MonoBehaviour
 	float lastMovementVertical = 1.0f;
 	float lastMovementHorizontal = 0.0f;
 	public int life = 100;
-	public Transform shootPoint;
 	public Transform target;
 	public float visionFieldSq = 25.0f;
-	float timeSinceLastShoot = 0.0f;
-	public int shotsPerSecond = 3;
-	public GameObject bulletPrefab;
-	public float shootForce = 10.0f;
+	
+	
+	GameObject weaponGO;
+	Weapon weaponScript;
 	
 	// Use this for initialization
 	void Start ()
@@ -32,12 +31,24 @@ public class EnemyController : MonoBehaviour
 		{
 			this.target = GameObject.FindWithTag("player").transform;
 		}
+		
+		foreach (Transform child in this.transform)
+		{
+			if (child.gameObject.tag == "weapon")
+			{
+				this.weaponGO = child.gameObject;
+				break;
+			}
+		}
+		if (this.weaponGO != null)
+		{
+			this.weaponScript = this.weaponGO.GetComponent<Weapon>();
+		}
 	}
 	
 	// Update is called once per frame
 	void Update ()
 	{
-		this.timeSinceLastShoot += Time.deltaTime;
 		this.updateGravity ();
 		if (Vector3.SqrMagnitude (this.target.position - this.transform.position) < this.visionFieldSq) {
 			this.updateShootTarget ();
@@ -70,13 +81,9 @@ public class EnemyController : MonoBehaviour
 	void updateShootTarget ()
 	{
 		this.transform.LookAt (this.target);
-		
-		if ((this.timeSinceLastShoot >= (1.0 / this.shotsPerSecond))) {
-			this.timeSinceLastShoot = 0.0f;
-			Vector3 pos = this.shootPoint.position;
-			Vector3 direction = this.target.position - this.transform.position;
-			GameObject bullet = (GameObject)Instantiate (this.bulletPrefab, pos, Camera.main.transform.rotation);
-			bullet.rigidbody.AddForce (direction * this.shootForce, ForceMode.Impulse);
+		if (this.weaponScript != null)
+		{
+			this.weaponScript.TryToShoot();
 		}
 	}
 	

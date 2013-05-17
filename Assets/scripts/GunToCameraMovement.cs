@@ -4,7 +4,7 @@ using System.Collections;
 public class GunToCameraMovement : MonoBehaviour {
 	
 	private Camera cameraToFollow;
-	public Transform player;
+	public Transform weapon;
 	public float speed = 25.0f;
 
 	// Use this for initialization
@@ -21,6 +21,6 @@ public class GunToCameraMovement : MonoBehaviour {
 		eulerRotationTo.y += 180.0f;
 		eulerRotationTo.x = -eulerRotationTo.x;
 		Quaternion rotationTo = Quaternion.Euler(eulerRotationTo);
-		this.transform.rotation = Quaternion.Lerp(this.transform.rotation, rotationTo, 0.5f*Time.deltaTime*this.speed);
+		this.weapon.transform.rotation = Quaternion.Lerp(this.weapon.transform.rotation, rotationTo, 0.5f*Time.deltaTime*this.speed);
 	}
 }
