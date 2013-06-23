@@ -52,8 +52,12 @@
      <Compile Include="Assets\scripts\GunToCameraMovement.cs" />
      <Compile Include="Assets\scripts\GunWalkingAnimationMovement.cs" />
      <Compile Include="Assets\scripts\Shoot.cs" />
+     <None Include="Assets\Path\License.txt" />
  <Reference Include="Library\ScriptAssemblies\Assembly-UnityScript-firstpass">
  <HintPath>Library\ScriptAssemblies\Assembly-UnityScript-firstpass.dll</HintPath>
+ </Reference>
+ <Reference Include="Assets\Path\Path.Runtime">
+ <HintPath>Assets\Path\Path.Runtime.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>

@@ -52,6 +52,10 @@
      <Compile Include="Assets\scripts\GunToCameraMovement.cs" />
      <Compile Include="Assets\scripts\GunWalkingAnimationMovement.cs" />
      <Compile Include="Assets\scripts\Shoot.cs" />
+     <None Include="Assets\Path\License.txt" />
+ <Reference Include="Assets\Path\Path.Runtime">
+ <HintPath>Assets\Path\Path.Runtime.dll</HintPath>
+ </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp-firstpass.csproj">

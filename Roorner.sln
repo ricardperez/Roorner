@@ -5,6 +5,8 @@ Project("{F62289AF-1D0E-B43C-C174-295D8F2BA7E3}") = "Roorner", "Assembly-CSharp-
 EndProject
 Project("{F62289AF-1D0E-B43C-C174-295D8F2BA7E3}") = "Roorner", "Assembly-CSharp.csproj", "{ADA20B2B-CB33-62D3-DB1F-E6F8CED4CB20}"
 EndProject
+Project("{F62289AF-1D0E-B43C-C174-295D8F2BA7E3}") = "Roorner", "Assembly-CSharp-Editor.csproj", "{ECC6D5F3-38B8-F256-DEB9-CA36CAE2E161}"
+EndProject
 Project("{F62289AF-1D0E-B43C-C174-295D8F2BA7E3}") = "Roorner", "Assembly-UnityScript-firstpass.unityproj", "{1B7E6A55-B294-9D55-1FD2-E9CED9E8C81E}"
 EndProject
 Global
@@ -21,6 +23,10 @@ Global
 		{ADA20B2B-CB33-62D3-DB1F-E6F8CED4CB20}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ADA20B2B-CB33-62D3-DB1F-E6F8CED4CB20}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ADA20B2B-CB33-62D3-DB1F-E6F8CED4CB20}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ECC6D5F3-38B8-F256-DEB9-CA36CAE2E161}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ECC6D5F3-38B8-F256-DEB9-CA36CAE2E161}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ECC6D5F3-38B8-F256-DEB9-CA36CAE2E161}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ECC6D5F3-38B8-F256-DEB9-CA36CAE2E161}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1B7E6A55-B294-9D55-1FD2-E9CED9E8C81E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1B7E6A55-B294-9D55-1FD2-E9CED9E8C81E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1B7E6A55-B294-9D55-1FD2-E9CED9E8C81E}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -29,7 +35,7 @@ Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-																							GlobalSection(MonoDevelopProperties) = preSolution
+																										GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = Assembly-CSharp.csproj
 		Policies = $0
 		$0.TextStylePolicy = $1

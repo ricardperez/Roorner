@@ -30,7 +30,6 @@ public class Shoot : MonoBehaviour
 	void Update ()
 	{
 		if (Input.GetButton ("Fire1")) {
-			Debug.Log("Shoot " + (this.weaponScript == null ? "null" : (""+this.weaponScript)));
 			if (this.weaponScript != null)
 			{
 				this.weaponScript.TryToShoot(Input.GetButtonDown("Fire1"));
